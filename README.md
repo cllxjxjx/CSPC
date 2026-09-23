@@ -14,5 +14,8 @@ All the tests passed succesfully
  In this pw,I learned how to set up a envioriment with conda,using Git and GitHub.Additionally,i observed significant performance increase
  using NumPy operations compared to pure-Python loops for simulating atomic decay.
 
+## PW1 Lab B
 
-
+I observed that the `decay_observed.csv` dataset contains time and count measurements showing a rapid decrease over time.
+The observed scatter data matches the analytical decay law very well.It follows the exact same exponential trajectory.
+The Snakemake tracks file timestamps to automatically regenerate `figure.png` whenever the dataset or plotting script is modified.
