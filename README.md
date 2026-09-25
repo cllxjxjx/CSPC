@@ -21,7 +21,7 @@ The observed scatter data matches the analytical decay law very well.It follows 
 The Snakemake tracks file timestamps to automatically regenerate `figure.png` whenever the dataset or plotting script is modified.
 
 
-#PW2 Lab A
+##PW2 Lab A
 In this experiment i got the mean of acceleration -8.75 m/s*s which is noisy.The acceleration is extremely noisy because numerical differentiation compares nearby data points and amplifies measurement noise, and taking the derivative twice swamped the real signal.
 We used integrals for position and regardless of the acceleration being noisy since integral consists of summing the summing process mostly cancels the  noise so we got 0.64m.Derivative increase the noise but integral cancels them.
 
