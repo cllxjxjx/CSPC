@@ -23,7 +23,7 @@ The Snakemake tracks file timestamps to automatically regenerate `figure.png` wh
 
 ## PW2 Lab A
 In this experiment i got the mean of acceleration -8.75 m/s*s which is noisy.The acceleration is extremely noisy because numerical differentiation compares nearby data points and amplifies measurement noise, and taking the derivative twice swamped the real signal.
-We used integrals for position and regardless of the acceleration being noisy since integral consists of summing the summing process mostly cancels the  noise so we got 0.64m.Derivative increase the noise but integral cancels them.
+We used integrals for position and regardless of the acceleration being noisy since integral consists of summing the summing process mostly cancels the  noise so we got 0.64m.Derivative increase the noise but integral cancels them.I also used the formula sqrt(vx**2 + vy**2) as numpy and made the graph of it.
 
 Conclusion:
 In this pw,i learned about relations between velocity,acceleration and position.I also learned how integrals and derivatives affect noisiness in measurements.
