@@ -57,3 +57,53 @@ n(HI) = 1.33 mol
 Finding the roots and minimizing error's square determined the chemical equilibrium point with same accuracy.
 
 
+
+## PW3 - Session 1: Characterise the Data
+
+**Dataset Summary:**
+- Loaded `heart.csv` (~300 patients) isolating continuous features: `age`, `chol`, `trestbps`, `thalach`.
+
+**Shape & Distribution Descriptions:**
+- **age**: Roughly symmetric, bell-shaped distribution centered around 54 years.
+- **chol** (cholesterol): Slightly right-skewed with a few high-value outliers above 400 mg/dL.
+- **trestbps** (resting blood pressure): Moderate right skew with slight clustering around typical clinical intervals (e.g., 120, 130, 140 mmHg).
+- **thalach** (max heart rate): Moderately left-skewed, peaking around 150–160 bpm.
+
+**Normality Verdicts:**
+- **age**: Approximately normal based on graphical symmetry and mild skewness.
+- **chol**: Not normal due to right-tail skewness and extreme outliers (Shapiro-Wilk p < 0.05).
+- **trestbps**: Not normal due to right skew and thresholding effects (Shapiro-Wilk p < 0.05).
+- **thalach**: Not normal due to left skewness (Shapiro-Wilk p < 0.05).
+
+## PW3 - Session 2: Draw Conclusions
+
+**Is the effect real? (Heart Disease vs Thalach):**
+- A Mann-Whitney U test confirmed that heart disease patients reach a significantly lower maximum heart rate (`thalach`) compared to healthy patients ($p < 0.001$).
+- Displaying group means with Standard Error of the Mean (SEM) error bars clearly separates the two populations beyond visual uncertainty.
+
+**Do two things move together? (Age vs Thalach):**
+- Age and `thalach` display a moderate negative correlation ($r \approx -0.40, p < 0.001$), demonstrating that maximum achievable heart rate decreases systematically as age increases.
+
+**Chemical-Exposure Mystery (Confounding Variables):**
+- **Naive Analysis:** At face value, one chemical appeared far more strongly associated with tumor malignancy score.
+- **Controlling for Pollution Index:** Restricting the cohort to patients with similar area pollution indices ($40 < \text{pollution\_index} < 60$) caused the naive association to collapse. The third variable (`pollution_index`) was the true underlying driver influencing both chemical exposure and malignancy score.
+
+**Bonus (Category Unpredictability):**
+- Calculated Shannon entropy on the target class proportions yields a value close to $1.0\text{ bit}$, indicating a nearly balanced distribution that represents maximum unpredictability for binary classification.
+
+## PW3 --- Data Characterisation and Chemical Mystery Report
+
+### Session 1: Data Characterisation & Normality Verdicts
+* **age:** Approximately normal (bell-shaped distribution, low skewness).
+* **chol:** Not normal (right-skewed with extreme high-value outliers above 400 mg/dL, Shapiro-Wilk test $p < 0.05$).
+* **trestbps:** Not normal (right-skewed due to clinical measurement clustering, Shapiro-Wilk test $p < 0.05$).
+* **thalach:** Not normal (left-skewed toward higher max heart rates, Shapiro-Wilk test $p < 0.05$).
+
+### Session 2: Heart Rate & Age Analysis
+* **Heart Rate Comparison (`thalach`):** Non-parametric Mann-Whitney U test confirmed that heart disease patients reach a significantly lower maximum heart rate ($\approx 139$ bpm) compared to healthy patients ($\approx 158$ bpm, $p < 0.001$).
+* **Age vs. Heart Rate Relationship:** Spearman correlation ($r \approx -0.40, p < 0.001$) demonstrated a significant negative trend: maximum heart rate decreases systematically as age increases.
+
+### Chemical Exposure Mystery: Correlation vs. Causation
+* **Naive Conclusion:** At face value, `benzene` showed a strong positive correlation with tumor malignancy, making it look guilty, while `cadmium` appeared weak.
+* **Controlling for Confounding Variable (`pollution_index`):** When restricting the cohort to patients in the same pollution band ($40 < \text{pollution\_index} < 60$), the correlation between `benzene` and malignancy completely vanished ($r \approx 0$). Meanwhile, `cadmium` showed a strong positive association with malignancy across all pollution tiers.
+* **Final Verdict:** `cadmium` is the actual chemical that drives malignancy. `benzene` only appeared guilty because high benzene concentrations co-occurred with high area pollution levels, which acted as a confounding variable.
