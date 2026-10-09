@@ -27,3 +27,6 @@ We used integrals for position and regardless of the acceleration being noisy si
 
 Conclusion:
 In this pw,i learned about relations between velocity,acceleration and position.I also learned how integrals and derivatives affect noisiness in measurements.
+
+## PW2 Lab B
+In this exp in the i applied gradient descent,newton and SLSQP to the functions f(x) and g(x).In function g(x) when x0 = 0 with newton method it stops at 0.17  but since its second derivative is -5.65 (<0) it is not minimum point its maximum stasionary point.
