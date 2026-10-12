@@ -4,9 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 
-# ==========================================
+
 # Task 4: Is the effect real? (Heart Disease)
-# ==========================================
 df_heart = pd.read_csv("heart.csv")
 
 # Split thalach into disease (target=1) and healthy (target=0)
@@ -35,9 +34,9 @@ plt.title('Mean Max Heart Rate with Uncertainty (SEM)')
 plt.tight_layout()
 plt.savefig('thalach_target.png')
 
-# ==========================================
+
 # Task 5: Do two things move together?
-# ==========================================
+
 r_val, p_corr = stats.spearmanr(df_heart['age'], df_heart['thalach'])
 
 print("\n--- Task 5: Correlation (Age vs Thalach) ---")
@@ -51,9 +50,8 @@ plt.ylabel('Max Heart Rate (thalach)')
 plt.tight_layout()
 plt.savefig('age_thalach.png')
 
-# ==========================================
+
 # Task 6 & 7: Chemical-Exposure Mystery
-# ==========================================
 df_chem = pd.read_csv("chemicals_cancer.csv")
 
 print("\n--- Task 6: Naive Correlation Analysis ---")
@@ -69,9 +67,8 @@ corr_cad_rest = df_restricted['cadmium'].corr(df_restricted['malignancy'])
 print(f"Restricted Benzene vs Malignancy correlation : {corr_ben_rest:.3f}")
 print(f"Restricted Cadmium vs Malignancy correlation : {corr_cad_rest:.3f}")
 
-# ==========================================
+
 # Bonus: Categorical Unpredictability (Entropy)
-# ==========================================
 props = df_heart['target'].value_counts(normalize=True)
 entropy = -np.sum(props * np.log2(props)) # Shannon entropy in bits
 
