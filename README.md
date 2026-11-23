@@ -107,3 +107,28 @@ Finding the roots and minimizing error's square determined the chemical equilibr
 * **Naive Conclusion:** At face value, `benzene` showed a strong positive correlation with tumor malignancy, making it look guilty, while `cadmium` appeared weak.
 * **Controlling for Confounding Variable (`pollution_index`):** When restricting the cohort to patients in the same pollution band (between 40 and 60), the correlation between `benzene` and malignancy completely vanished 0. Meanwhile, `cadmium` showed a strong positive association with malignancy across all pollution tiers.
 * **Final Verdict:** `cadmium` is the actual chemical that drives malignancy. `benzene` only appeared guilty because high benzene concentrations co-occurred with high area pollution levels, which acted as a confounding variable.
+
+##PW4 Session A
+# Practical Work 4 (PW4) - Report
+
+## Session A Report
+* **Variables and Units:** 
+  * `cement`: kg/m^3
+  * `slag`: kg/m^3
+  * `ash`: kg/m^3
+  * `coarse_agg`: kg/m^3
+  * `fine_agg`: kg/m^3
+  * `water`: kg/m^3
+  * `superplastic`: kg/m^3
+  * `age`: days
+  * `strength`: MPa
+* **Cleaning Decisions:** Duplicate rows were removed before the train/test split to prevent data leakage and overfitting, ensuring that identical samples do not appear in both the training and testing sets.
+* **Linear Equation and Tables:** The resulting coefficients, units, train/test RMSE, MAE, and R^2 scores are documented in the results.
+* **Model Selections:** The K value for KNN and `max_depth` optimization for the Decision Tree were selected based on performance balancing and validation.
+* **Metrics and Threshold:** False Negatives (FN) and False Positives (FP) were evaluated from a construction safety perspective. Mistaking low-strength concrete for durable concrete (FN) poses a severe structural risk, making recall and False Negative control critical.
+
+---
+
+## Session B Report
+* **PCA Comparison:** Unscaled (raw) PCA is heavily dominated by features with large numerical ranges and standard deviations, whereas scaled PCA distributes variance fairly across all principal components.
+* **K-Means and Agreement:** The optimal number of clusters (k=3) was selected using the inertia elbow method. The high agreement rate with true grape cultivars demonstrates how effectively unsupervised chemical clustering separates the three varieties.
